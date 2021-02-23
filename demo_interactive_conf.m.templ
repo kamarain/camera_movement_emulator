@@ -1,0 +1,108 @@
+% DEMO_INTERACTIVE_CONF configuration file for the interactive demo
+%
+%   configS - All config info stored in this structure
+
+% Image to be used in the demo
+confS.input_image = './data/magazines.png';
+
+% Number of frames interpolated between the given points
+confS.interp_frame_num = 5;
+
+% Dir for the saved sequence frames
+confS.frame_save_dir = 'frames_TEMP';
+
+% Optical image parameters (optical magnification and interpolation factor)
+confS.opti.base_pixel_magnification = 1.0;
+confS.opti.interp_factor = 5;
+
+% Sensor parameters (some given with respect to the size of base image pixel, i.e. minimum measurable world area)
+configS.sensor.size = [128 128];
+configS.sensor.pix_effective_area = [0.8 0.8];
+configS.sensor.pix_effective_area_offset = [0.1 0.1];
+configS.sensor.color_mask = [];
+
+return;
+
+
+%
+% 1. PATHS
+%
+
+%
+% 1.1 ITLAB/fileio file type and I/O functionality
+configS.itlab_fileioPath = '/home/kamarain/Work/lut_fi/CVS_old/itlab/itmatlab/fileio';
+addpath(configS.itlab_fileioPath);
+
+%
+% 1.1 Evex functionality (image manipulation)
+configS.evexPath = '/home/kamarain/Work/lut_fi/CVS_old/evex/src/matlab/base01'; 
+addpath(configS.evexPath);
+
+%
+% 1.2 ITLAB/funcfunc multipurpose functionality
+configS.itlab_funcfuncPath = '/home/kamarain/Work/lut_fi/CVS_old/itlab/itmatlab/funcfunc';
+addpath(configS.itlab_funcfuncPath);
+
+%
+% 2. General variables and input data
+%
+
+%
+% 2.1 Force to redo everything
+configS.force = false; 
+
+
+
+%
+% 3. Generating frame sequence
+%
+
+
+%
+% 3.2 Directory where the generated frames are saved
+%configS.frameSaveDir = 'magazines_linepath_01'; % linear
+%configS.frameSaveDir = 'magazines_rectangle_small_01';
+configS.frameSaveDir = 'magazines_TEMP';
+
+%
+% 3.3 Optical image parameters (optical magnification and
+% interpolation factor)
+%configS.optImg.basepixelMagnification = 0.5;
+configS.optImg.basepixelMagnification = 1.0;
+configS.optImg.interpFactor = 5;
+
+%
+% 3.4 Sensor parameters (some given with respect to the size of
+% base image pixel, i.e. minimum measurable world area)
+%configS.sensor.size = [400 300];
+configS.sensor.size = [128 128];
+configS.sensor.pixEffectiveArea = [0.8 0.8];
+configS.sensor.pixEffectiveAreaOffset = [0.1 0.1];
+configS.sensor.colorMask = [];
+% Bayer
+%configS.sensor.colorMask = cat(3, ...
+%                               [NaN NaN; 1 NaN], ...
+%                               [1 NaN; NaN 1], ...
+%                               [NaN 1; NaN NaN] );
+
+%
+% 3.5 Mat-file containing the base area image used in evaluation
+configS.baseAreaImgSave = 'baseareaimg';
+
+
+%
+% 4. Configs for the artificial data tests
+%
+
+%
+% 4.1 Std of noise added to the rotation angles
+configS.arti_rotAngleNoiseStd = [0.00 0.50 1.00];
+
+%
+% 4.2 Plot label (for different noise levels)
+configS.arti_plotLineType = {'r-', 'g--', 'b-.', 'r--','g-', 'b-'};
+
+%
+% 4.3 Which test number is run (note that the final curves are
+% plotted together to the give plot label
+configS.arti_errFigNum = 42;
