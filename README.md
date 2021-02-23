@@ -14,9 +14,13 @@ With the interactive demo you can generate a sequence of artificial video define
 that includes image center points and camera angles. Just run
 
 ```
+$ nice matlab -nodesktop -softwareopengl
+>> addpath tools
+>> demo_interactive_conf
 >> demo_interactive
 ```
 
-and the demo will instruct you through.
+and the demo will instruct you through. The code helps you to understand the functionality where the main generation code
+is in *computerframes2d.m*
 
-![Interactive demo](data/camera_movement_emulator_example01.png)
+![Interactive demo](data/camera_movement_emulator_framework.png)
